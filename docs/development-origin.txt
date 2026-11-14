@@ -1,0 +1,9 @@
+本發布副本包含開發工作目錄中尚未提交的測距版本。
+原始 Git 開發歷史仍保留於原開發儲存庫。
+擷取時的開發儲存庫 HEAD：916b1f34ecc8a46aa6f3fc963af33643c0fe92cc
+
+原開發儲存庫提交紀錄：
+916b1f3 2026-09-12 Add touch drawing with M4 LED control and automatic startup
+4a5eaa1 2026-09-12 Add LED7 monitor, boot splash and automatic startup
+f416d20 2026-09-12 Verify STM32MP1 OpenAMP dual RPMsg channels
+ab4790f 2026-09-12 Add STM32MP1 official A7 development baseline

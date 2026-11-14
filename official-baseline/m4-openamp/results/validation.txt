@@ -1,0 +1,24 @@
+Board: STM32MP157F-DK2
+STM32CubeMP1: v1.7.0
+STM32CubeIDE: v2.2.0
+
+Firmware:
+OpenAMP_TTY_echo_CM4
+
+remoteproc0:
+running
+
+RPMsg devices:
+/dev/ttyRPMSG0
+/dev/ttyRPMSG1
+
+Original firmware:
+RPMSG0 -> Hello Virtual UART0
+RPMSG1 -> Hello Virtual UART1
+
+Modified firmware:
+RPMSG0 -> Channel RPMSG0: Hello Virtual UART0
+RPMSG1 -> Channel RPMSG1: Hello Virtual UART1
+
+Result:
+Cortex-A7 Linux <-> RPMsg/OpenAMP <-> Cortex-M4 communication verified.

@@ -1,0 +1,12 @@
+Kernel release:
+6.6.129
+
+uImage:
+/home/fan/STM32MPU_workspace/STM32MPU-Ecosystem-v6.2.1/Developer-Package/stm32mp-openstlinux-6.6-yocto-scarthgap-mpu-v26.06.10/sources/ostl-linux/linux-stm32mp-6.6.129-stm32mp-r3.1-r0/linux-6.6.129/../build/arch/arm/boot/uImage: u-boot legacy uImage, Linux-6.6.129, Linux/ARM, OS Kernel Image (Not compressed), 8733544 bytes, Wed Sep  9 18:06:24 2026, Load Address: 0XC2000040, Entry Point: 0XC2000040, Header CRC: 0XC91932B8, Data CRC: 0X9EEC6CCA
+
+vmlinux:
+/home/fan/STM32MPU_workspace/STM32MPU-Ecosystem-v6.2.1/Developer-Package/stm32mp-openstlinux-6.6-yocto-scarthgap-mpu-v26.06.10/sources/ostl-linux/linux-stm32mp-6.6.129-stm32mp-r3.1-r0/linux-6.6.129/../build/vmlinux: ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, BuildID[sha1]=e4a7ee2337204047874dccf358107ff6c90f6f77, with debug_info, not stripped
+
+Hashes:
+d80e1c98d2cd57c2878c4000234850c04e36dc6a88ae658536a85832655f7bbe  /home/fan/STM32MPU_workspace/STM32MPU-Ecosystem-v6.2.1/Developer-Package/stm32mp-openstlinux-6.6-yocto-scarthgap-mpu-v26.06.10/sources/ostl-linux/linux-stm32mp-6.6.129-stm32mp-r3.1-r0/linux-6.6.129/../build/arch/arm/boot/uImage
+9ae4d29e22689e9cef5b6a866ef22e2632c98d5ba7e625593645e3c79bc9d796  /home/fan/STM32MPU_workspace/STM32MPU-Ecosystem-v6.2.1/Developer-Package/stm32mp-openstlinux-6.6-yocto-scarthgap-mpu-v26.06.10/sources/ostl-linux/linux-stm32mp-6.6.129-stm32mp-r3.1-r0/linux-6.6.129/../build/arch/arm/boot/dts/st/stm32mp157f-dk2.dtb

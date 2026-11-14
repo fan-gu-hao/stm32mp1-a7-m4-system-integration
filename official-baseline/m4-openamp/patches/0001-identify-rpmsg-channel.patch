@@ -1,0 +1,32 @@
+--- /home/fan/STM32MPU_workspace/stm32mp1-a7-m4-system-integration/official-baseline/m4-openamp/source/main.c.baseline	2026-09-11 23:58:51.671534705 +0800
++++ /home/fan/STM32MPU_workspace/stm32mp1-a7-m4-system-integration/official-baseline/m4-openamp/source/main.c	2026-09-11 21:52:51.742372586 +0800
+@@ -149,15 +149,26 @@
+ 
+     OPENAMP_check_for_message();
+ 
+-    /* USER CODE END WHILE */
+     if (VirtUart0RxMsg) {
++      char msg_to_transmit[MAX_BUFFER_SIZE];
++      int msg_size = 0;
+       VirtUart0RxMsg = RESET;
+-      VIRT_UART_Transmit(&huart0, VirtUart0ChannelBuffRx, VirtUart0ChannelRxSize);
++
++      msg_size = snprintf(msg_to_transmit, MAX_BUFFER_SIZE, "Channel RPMSG0: ");
++      msg_size += snprintf(msg_to_transmit + msg_size, MAX_BUFFER_SIZE, "%s\n", VirtUart0ChannelBuffRx);
++      log_info("size of the message to transmit = %d bytes\n", msg_size);
++      VIRT_UART_Transmit(&huart0, (uint8_t*)msg_to_transmit, msg_size);
+     }
+ 
+     if (VirtUart1RxMsg) {
++      char msg_to_transmit[MAX_BUFFER_SIZE];
++      uint16_t msg_size = 0;
+       VirtUart1RxMsg = RESET;
+-      VIRT_UART_Transmit(&huart1, VirtUart1ChannelBuffRx, VirtUart1ChannelRxSize);
++
++      msg_size = snprintf(msg_to_transmit, MAX_BUFFER_SIZE, "Channel RPMSG1: ");
++      msg_size += snprintf(msg_to_transmit + msg_size, MAX_BUFFER_SIZE, "%s\n", VirtUart1ChannelBuffRx);
++      log_info("size of the message to transmit = %d bytes\n", msg_size);
++      VIRT_UART_Transmit(&huart1, (uint8_t*)msg_to_transmit, msg_size);
+     }
+ 
+     if(counter++ == 500000) {

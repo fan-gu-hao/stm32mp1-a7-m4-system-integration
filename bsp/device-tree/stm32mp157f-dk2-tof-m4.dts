@@ -1,0 +1,31 @@
+#include "stm32mp157f-dk2.dts"
+#include <dt-bindings/pinctrl/stm32-pinfunc.h>
+
+/* Reserve CN13 PA11 and PA12 for Cortex-M4. */
+&pinctrl {
+	m4_tof_i2c5_pins: m4-tof-i2c5-0 {
+		pins {
+			pinmux = <STM32_PINMUX('A', 11, RSVD)>,
+				 <STM32_PINMUX('A', 12, RSVD)>;
+		};
+	};
+};
+
+/* Linux must not operate this I2C controller. */
+&i2c5 {
+	status = "disabled";
+};
+
+/* Enable the Cortex-M4 system resource manager. */
+&m4_rproc {
+	m4_system_resources {
+		status = "okay";
+	};
+};
+
+/* Provide I2C5 resources to Cortex-M4. */
+&m4_i2c5 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&m4_tof_i2c5_pins>;
+	status = "okay";
+};

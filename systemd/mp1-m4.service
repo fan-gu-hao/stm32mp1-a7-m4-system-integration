@@ -1,0 +1,15 @@
+[Unit]
+Description=STM32MP1 Cortex-M4 ToF firmware
+After=local-fs.target
+
+[Service]
+Type=oneshot
+User=root
+RemainAfterExit=yes
+ExecStart=/usr/local/sbin/mp1-m4-start.sh
+ExecStop=/bin/sh -c 'echo stop > /sys/class/remoteproc/remoteproc0/state'
+TimeoutStartSec=30
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target

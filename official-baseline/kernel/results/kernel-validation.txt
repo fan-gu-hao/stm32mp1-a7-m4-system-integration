@@ -1,0 +1,44 @@
+Board:
+STM32MP157F-DK2
+
+OpenSTLinux ecosystem:
+STM32MP1-Ecosystem-v6.2.1
+OpenSTLinux 6.6
+Yocto Scarthgap
+mpu-v26.06.10
+
+SDK:
+5.0.17-openstlinux-6.6-yocto-scarthgap-mpu-v26.06.10
+
+Kernel:
+Linux 6.6.129
+
+Architecture:
+ARM 32-bit / Cortex-A7
+
+Kernel image:
+uImage
+Load Address: 0xC2000040
+Entry Point:  0xC2000040
+
+Baseline uImage SHA-256:
+d80e1c98d2cd57c2878c4000234850c04e36dc6a88ae658536a85832655f7bbe
+
+Modified uImage SHA-256:
+ebbd469c54b741b7b85751db91c2dbc4a3ccdbecdfc0b2843b2f8df3e2096f84
+
+STM32MP157F-DK2 DTB SHA-256:
+9ae4d29e22689e9cef5b6a866ef22e2632c98d5ba7e625593645e3c79bc9d796
+
+Kernel modules built:
+714
+
+Modification:
+drivers/pinctrl/stm32/pinctrl-stm32.c
+
+Added probe log:
+I modified a linux kernel device driver
+
+Status:
+Host-side build verification passed.
+Target runtime verification pending.

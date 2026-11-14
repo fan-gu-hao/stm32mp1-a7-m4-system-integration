@@ -1,0 +1,24 @@
+[Unit]
+Description=STM32MP1 ToF Distance Monitor
+Requires=mp1-m4.service
+After=mp1-m4.service weston-graphical-session.service
+PartOf=weston-graphical-session.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=weston
+Group=weston
+SupplementaryGroups=dialout
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+Environment=WAYLAND_DISPLAY=wayland-0
+Environment=GDK_BACKEND=wayland
+ExecStartPre=/usr/local/sbin/mp1-tof-monitor-wait.sh
+ExecStart=/usr/local/bin/mp1_tof_monitor
+Restart=on-failure
+RestartSec=3
+TimeoutStartSec=35
+TimeoutStopSec=5
+
+[Install]
+WantedBy=weston-graphical-session.service

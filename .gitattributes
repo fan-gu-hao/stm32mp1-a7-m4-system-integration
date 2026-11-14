@@ -1,0 +1,4 @@
+* text=auto eol=lf
+m4-firmware/vl53l0x/vendor/** -text -whitespace
+official-baseline/** -text -whitespace
+licenses/** -text -whitespace

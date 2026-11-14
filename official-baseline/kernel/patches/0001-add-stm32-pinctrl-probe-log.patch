@@ -1,0 +1,11 @@
+--- /tmp/pinctrl-stm32.c.baseline	2026-09-10 02:01:27.964280209 +0800
++++ drivers/pinctrl/stm32/pinctrl-stm32.c	2026-09-10 02:15:34.527290785 +0800
+@@ -2143,7 +2143,7 @@
+ 	}
+ 
+ 	dev_info(dev, "Pinctrl STM32 initialized\n");
+-
++        dev_info(dev, "I modified a linux kernel device driver yo yo  this is gia hao  \n");
+ 	return 0;
+ err_register:
+ 	for (i = 0; i < pctl->nbanks; i++) {
