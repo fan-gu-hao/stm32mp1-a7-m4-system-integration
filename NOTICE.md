@@ -39,8 +39,7 @@ licenses/VL53L0X-source-notice.txt
 
 ## Linux 與其他外部依賴
 
-`official-baseline/kernel/` 保存核心配置、修補檔與驗證紀錄。
-完整 Linux 核心、SDK、GTK、OpenAMP 及 HAL 套件需另行取得，
-其授權依相應上游來源及安裝套件為準。
+測距平台使用 Linux 核心、SDK、GTK、OpenAMP 及 HAL。
+完整套件需另行取得，其授權依相應上游來源及安裝套件為準。
 
 本文件用於記錄來源與授權文件位置，不取代各元件的授權條款。

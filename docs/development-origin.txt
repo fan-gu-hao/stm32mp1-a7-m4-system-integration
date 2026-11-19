@@ -1,9 +1,14 @@
-本發布副本包含開發工作目錄中尚未提交的測距版本。
-原始 Git 開發歷史仍保留於原開發儲存庫。
-擷取時的開發儲存庫 HEAD：916b1f34ecc8a46aa6f3fc963af33643c0fe92cc
+STM32MP1 異質核心測距與視覺化平台：發布來源
 
-原開發儲存庫提交紀錄：
-916b1f3 2026-09-12 Add touch drawing with M4 LED control and automatic startup
-4a5eaa1 2026-09-12 Add LED7 monitor, boot splash and automatic startup
-f416d20 2026-09-12 Verify STM32MP1 OpenAMP dual RPMsg channels
-ab4790f 2026-09-12 Add STM32MP1 official A7 development baseline
+本儲存庫是從已完成板端功能驗證的測距開發環境整理出的發布副本。
+發布內容涵蓋 M4 感測器存取與量測排程、A7 圖形介面、雙通道 RPMsg、
+測距裝置樹、開機服務，以及建置與工程還原工具。
+應用層韌體識別：TOF_STREAM_V1。
+
+擷取時的原始開發儲存庫 HEAD：916b1f34ecc8a46aa6f3fc963af33643c0fe92cc
+測距實作在擷取時包含尚未提交的變更，因此該 HEAD 僅作為來源追溯標記；
+重建本平台時，應使用本儲存庫保存的測距來源與工程設定。
+
+建置與部署流程見 docs/build-and-run.md。
+通訊協定、功能驗證與行為限制見 docs/tof.md。
+第三方來源與授權文件位置見 NOTICE.md。

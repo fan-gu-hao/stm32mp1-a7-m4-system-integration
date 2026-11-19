@@ -32,8 +32,8 @@ flowchart TB
 
 | 項目 | 本專案完成的工作 |
 |---|---|
-| 官方開發基線 | 建立 A7 交叉編譯、核心與裝置樹建置流程，保留板端驗證紀錄 |
-| 核心實作練習 | 修改 STM32 接腳控制驅動的探測紀錄，保留修補檔與驗證資料 |
+| 核心支援確認 | 確認 STM32 遠端處理器與資源管理功能已啟用，供 M4 韌體載入與周邊管理使用 |
+| 裝置樹與開機整合 | 建置測距專用 DTB，設定開機選項，並核對執行中的裝置樹與接腳使用狀態 |
 | 周邊所有權 | 在 Linux 裝置樹停用 I²C5，透過 M4 資源節點保留 PA11、PA12 |
 | M4 周邊初始化 | 配置 I²C5、GPIO 複用及時鐘閘控，使用硬體信號量保護 GPIO 配置 |
 | 感測器移植 | 將 ST VL53L0X API 接到 STM32 HAL，處理位址格式、多位元組資料與錯誤回報 |
@@ -87,14 +87,13 @@ ST HAL、OpenAMP、RPMsg 驅動及 VL53L0X 原廠 API 為既有元件。
 | `m4-firmware/cubeide/CM4/` | 已使用的 CubeIDE 工程設定 |
 | `bsp/device-tree/` | M4 測距專用裝置樹 |
 | `systemd/` | 韌體與圖形程式的啟動設定 |
-| `official-baseline/` | 核心、接腳控制與 OpenAMP 的前期學習紀錄 |
 | `tools/` | 重建與 M4 工程還原工具 |
 
 ## 重建與驗證
 
 - [重建及部署說明](docs/build-and-run.md)
 - [通訊協定、功能驗證與限制](docs/tof.md)
-- [原始開發紀錄來源](docs/development-origin.txt)
+- [測距平台發布來源](docs/development-origin.txt)
 - [第三方來源與授權文件](NOTICE.md)
 
 本儲存庫是從已驗證的開發環境整理出的發布快照。
