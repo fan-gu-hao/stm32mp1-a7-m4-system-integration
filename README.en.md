@@ -8,6 +8,12 @@ Cortex-M4 handles sensor access and periodic ranging; Cortex-A7 handles touchscr
 
 The main engineering focus is **board support package (BSP) and system integration**: pin/peripheral ownership, device-tree configuration, sensor API porting, remote firmware loading, cross-core messaging, and automatic startup.
 
+## Demonstration Video
+
+[![STM32MP1 heterogeneous-core ranging platform demo — click to watch on YouTube](https://i.ytimg.com/vi/KmpvJKtkULM/maxresdefault.jpg)](https://www.youtube.com/watch?v=KmpvJKtkULM)
+
+**[▶ Watch the demonstration on YouTube](https://www.youtube.com/watch?v=KmpvJKtkULM)**
+
 ## Technical Documentation
 
 - [Peripheral resource configuration](docs/tof.md#資源分配): How the device tree assigns I²C5 and PA11/PA12 to M4.
@@ -100,6 +106,4 @@ This version uses four wires and does not use a separate XSHUT or interrupt sign
 
 This repository is a release snapshot extracted from a previously validated development environment. The SDK, complete Linux kernel source tree, and STM32CubeMP1 package must be installed separately.
 
-## Demonstration Video
-
-A video will be added later. On-board manual validation already covered the GUI, distance changes, START/STOP, and automatic startup after reboot.
+On-board manual validation already covered the GUI, distance changes, START/STOP, and automatic startup after reboot.

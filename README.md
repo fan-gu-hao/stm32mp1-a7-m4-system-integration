@@ -8,6 +8,12 @@ Cortex-M4 負責感測器存取與週期測距，Cortex-A7 負責觸控操作及
 
 專案重點是板級支援套件（BSP）與系統整合：從接腳與周邊資源分配、裝置樹、感測器移植，到韌體載入、核心間通訊及開機自動啟動。
 
+## 展示影片
+
+[![STM32MP1 異質核心測距平台實機展示，點擊前往 YouTube 觀看](https://i.ytimg.com/vi/KmpvJKtkULM/maxresdefault.jpg)](https://www.youtube.com/watch?v=KmpvJKtkULM)
+
+**[▶ 在 YouTube 觀看展示影片](https://www.youtube.com/watch?v=KmpvJKtkULM)**
+
 ## 技術文件導覽
 
 - [周邊資源配置](docs/tof.md#資源分配)：裝置樹如何將 I²C5 與 PA11／PA12 配置給 M4。
@@ -100,6 +106,4 @@ ST HAL、OpenAMP、RPMsg 驅動及 VL53L0X 原廠 API 為既有元件。
 本儲存庫是從已驗證的開發環境整理出的發布快照。
 SDK、完整核心原始碼及 STM32CubeMP1 套件需另外安裝。
 
-## 展示影片
-
-影片將於後續補上。目前已完成板端視窗、距離變化、START／STOP 與重新開機後自動啟動的人工驗證。
+目前已完成板端視窗、距離變化、START／STOP 與重新開機後自動啟動的人工驗證。
