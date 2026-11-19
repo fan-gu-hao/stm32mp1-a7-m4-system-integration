@@ -8,6 +8,30 @@ Cortex-M4 handles sensor access and periodic ranging; Cortex-A7 handles touchscr
 
 The main engineering focus is **board support package (BSP) and system integration**: pin/peripheral ownership, device-tree configuration, sensor API porting, remote firmware loading, cross-core messaging, and automatic startup.
 
+## Technical Documentation
+
+- [Peripheral resource configuration](docs/tof.md#資源分配): How the device tree assigns I²C5 and PA11/PA12 to M4.
+- [Cross-core communication design](docs/tof.md#通訊分工): How the two RPMsg channels carry measurement data and control commands.
+- [Build and deployment workflow](docs/build-and-run.md): Cross-compilation, firmware loading, and automatic startup.
+
+These detailed guides are currently available in Traditional Chinese.
+
+## BSP and Low-Level Integration
+
+| Area | Implemented Work |
+| --- | --- |
+| Kernel support verification | Verified that STM32 remote-processor and resource-management support is enabled for M4 firmware loading and peripheral management. |
+| Device-tree and boot integration | Built the ranging-specific DTB, configured its boot entry, and verified the running device tree and pin ownership. |
+| Peripheral ownership | Disabled I²C5 in the Linux device tree and reserved PA11/PA12 through M4 resource nodes. |
+| M4 peripheral initialization | Configured I²C5, GPIO alternate functions and clock gating, using a hardware semaphore for GPIO configuration protection. |
+| Sensor API porting | Connected the ST VL53L0X API to STM32 HAL, handling address representation, multibyte transfers and errors. |
+| Startup debugging | Traced I²C timeouts after software reset; added startup waiting to achieve ranging. |
+| Cross-core communication | Used OpenAMP virtual UART channels with newline-delimited commands, sequence numbers and nonblocking transmission. |
+| Linux application | Implemented nonblocking reads/writes, split and merged message handling, timeouts and GUI updates. |
+| Boot integration | Used systemd to manage M4 and GUI services while waiting for communication and display readiness. |
+
+ST HAL, OpenAMP, RPMsg drivers and the VL53L0X vendor API are pre-existing components. This project implements resource configuration, porting layers, an application protocol, ranging scheduling, GUI software, and service integration.
+
 ## Implemented Features
 
 - M4 communicates with VL53L0X over I²C5, including device identification and actual distance measurements.
@@ -29,22 +53,6 @@ flowchart TB
     M4 <-->|"I²C5: PA11 / PA12"| Sensor["VL53L0X"]
     DT["Device tree and remote-processor resource ownership"] -->|"Reserve I²C5 and pins for M4"| M4
 ```
-
-## BSP and Low-Level Integration
-
-| Area | Implemented Work |
-| --- | --- |
-| Official baseline | Set up A7 cross-compilation, Linux kernel and device-tree build workflows, with on-board validation records. |
-| Kernel source exercise | Modified pinctrl driver probe-path logging; retained patches and validation evidence. |
-| Peripheral ownership | Disabled I²C5 in the Linux device tree and reserved PA11/PA12 through M4 resource nodes. |
-| M4 peripheral initialization | Configured I²C5, GPIO alternate functions and clock gating, using a hardware semaphore for GPIO configuration protection. |
-| Sensor API porting | Connected the ST VL53L0X API to STM32 HAL, handling address representation, multibyte transfers and errors. |
-| Startup debugging | Traced I²C timeouts after software reset; added startup waiting to achieve ranging. |
-| Cross-core communication | Used OpenAMP virtual UART channels with newline-delimited commands, sequence numbers and nonblocking transmission. |
-| Linux application | Implemented nonblocking reads/writes, split and merged message handling, timeouts and GUI updates. |
-| Boot integration | Used systemd to manage M4 and GUI services while waiting for communication and display readiness. |
-
-ST HAL, OpenAMP, RPMsg drivers and the VL53L0X vendor API are pre-existing components. This project implements resource configuration, porting layers, an application protocol, ranging scheduling, GUI software, and service integration.
 
 ## Validated Environment
 
@@ -88,14 +96,13 @@ This version uses four wires and does not use a separate XSHUT or interrupt sign
 | `m4-firmware/cubeide/CM4/` | Used STM32CubeIDE project settings |
 | `bsp/device-tree/` | Device tree dedicated to M4 ranging |
 | `systemd/` | Firmware and GUI startup configuration |
-| `official-baseline/` | Earlier kernel, pinctrl and OpenAMP implementation notes |
 | `tools/` | Rebuild and M4 project restoration tools |
 
 ## Rebuild and Validation
 
 - [Build and deployment guide](docs/build-and-run.md)
 - [Communication protocol, feature validation and limitations](docs/tof.md)
-- [Original development-record provenance](docs/development-origin.txt)
+- [Ranging platform release provenance](docs/development-origin.txt)
 - [Third-party sources and license notice](NOTICE.md)
 
 This repository is a release snapshot extracted from a previously validated development environment. The SDK, complete Linux kernel source tree, and STM32CubeMP1 package must be installed separately.
