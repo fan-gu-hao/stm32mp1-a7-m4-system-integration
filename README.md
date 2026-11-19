@@ -1,5 +1,7 @@
 # STM32MP1 異質核心測距與視覺化平台
 
+**繁體中文** | [English](README.en.md)
+
 在 STM32MP157F-DK2 上整合 Cortex-A7 Linux、Cortex-M4、VL53L0X 距離感測器與內建觸控螢幕。
 
 Cortex-M4 負責感測器存取與週期測距，Cortex-A7 負責觸控操作及圖形顯示，兩者透過 OpenAMP／RPMsg 雙向通訊。
