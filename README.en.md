@@ -45,14 +45,7 @@ ST HAL, OpenAMP, RPMsg drivers and the VL53L0X vendor API are pre-existing compo
 
 ## System Architecture
 
-```mermaid
-flowchart TB
-    Sensor["VL53L0X distance sensor"] -->|"I²C5: sensor data readout"| M4["Cortex-M4: sensor access and periodic ranging"]
-    Config["Device tree and resource management"] -.->|"Reserve I²C5 and PA11 / PA12"| M4
-    M4 -->|"RPMsg0: distance, sequence, timestamp"| A7["Cortex-A7: Linux data processing and GUI"]
-    A7 -->|"RPMsg1: START / STOP / STATUS"| M4
-    A7 <-->|"Display output / touch input"| Screen["Built-in touchscreen"]
-```
+![System architecture: the sensor, resource configuration and A7 are above M4 and the touchscreen; RPMsg carries commands and measurement data](docs/diagrams/system-architecture.en.svg)
 
 ## Validated Environment
 
