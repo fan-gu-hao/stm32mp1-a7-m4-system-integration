@@ -46,11 +46,11 @@ ST HAL、OpenAMP、RPMsg 驅動及 VL53L0X 原廠 API 為既有元件。
 
 ```mermaid
 flowchart TB
-    UI["觸控螢幕"] --> A7["Cortex-A7：Linux 圖形介面"]
-    A7 -->|"RPMsg1：START／STOP／STATUS"| M4["Cortex-M4：感測器驅動與週期測距"]
-    M4 -->|"RPMsg0：距離／序號／時間資訊"| A7
-    M4 <-->|"I²C5：PA11／PA12"| Sensor["VL53L0X"]
-    DT["裝置樹與遠端處理器資源管理"] -->|"保留 I²C5 與接腳給 M4"| M4
+    Sensor["VL53L0X 距離感測器"] -->|"I²C5：讀取感測資料"| M4["Cortex-M4：感測器存取與週期測距"]
+    Config["裝置樹與資源管理"] -.->|"保留 I²C5 與 PA11／PA12"| M4
+    M4 -->|"RPMsg0：距離、序號、時間資訊"| A7["Cortex-A7：Linux 資料處理與圖形介面"]
+    A7 -->|"RPMsg1：開始、停止、狀態查詢"| M4
+    A7 <-->|"畫面顯示／觸控操作"| Screen["內建觸控螢幕"]
 ```
 
 ## 已驗證的環境
