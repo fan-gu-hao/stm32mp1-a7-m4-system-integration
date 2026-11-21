@@ -18,7 +18,6 @@ Projects/STM32MP157C-DK2/Applications/OpenAMP/OpenAMP_TTY_echo
 
 - `licenses/stm32cube/License.md`
 - `licenses/stm32cube/Package_license.md`
-- `licenses/stm32cube/Package_license.html`
 - `licenses/stm32cube/Projects/STM32MP157C-DK2/Applications/`
 - `licenses/stm32cube/Drivers/STM32MP1xx_HAL_Driver/`
 - `licenses/stm32cube/Drivers/BSP/STM32MP15xx_DISCO/`
